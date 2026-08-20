@@ -6,26 +6,26 @@
 
 ## Pensando como um Projetista de APIs
 
-### Por que o endereço /api/books/1 representa um recurso diferente de /api/books?
+### 1. Por que o endereço /api/books/1 representa um recurso diferente de /api/books?
 `/api/books` representa a coleção inteira de livros. `/api/books/1` representa um recurso individual específico dentro dessa coleção.
 
-### Por que o método GET é utilizado para consultar livros?
+### 2. Por que o método GET é utilizado para consultar livros?
 O método GET é seguro e idempotente, servindo estritamente para leitura de dados sem alterar o estado do servidor.
 
-### Por que o método POST é utilizado para criar um novo livro?
+### 3. Por que o método POST é utilizado para criar um novo livro?
 O POST é utilizado para submeter dados que resultarão no processamento e criação de um novo recurso no servidor.
 
-### Qual é a diferença entre 400 Bad Request e 404 Not Found?
+### 4. Qual é a diferença entre 400 Bad Request e 404 Not Found?
 *   **400 Bad Request:** Indica que a requisição está malformada ou com dados/sintaxe inválidos (ex: ID contendo letras).
 *   **404 Not Found:** Indica que a requisição está bem formatada, mas o recurso ou rota não foi encontrado no servidor.
 
-### Por que uma exclusão realizada com sucesso pode retornar 204 No Content?
+### 5. Por que uma exclusão realizada com sucesso pode retornar 204 No Content?
 Porque o recurso foi removido com sucesso e não há mais nenhum dado/corpo para retornar ao cliente.
 
-### O que aconteceria com os livros cadastrados se o servidor fosse encerrado?
+### 6. O que aconteceria com os livros cadastrados se o servidor fosse encerrado?
 Seriam perdidos, pois estão armazenados apenas na memória RAM (variável em memória).
 
-### Quais limitações existem em uma aplicação que mantém seus dados exclusivamente em memória?
+### 7. Quais limitações existem em uma aplicação que mantém seus dados exclusivamente em memória?
 Falta de persistência (dados somem ao desligar/reiniciar), consumo limitado pela memória RAM do sistema e incapacidade de compartilhar dados entre múltiplas instâncias do servidor.
 
 ## Modelagem da API
