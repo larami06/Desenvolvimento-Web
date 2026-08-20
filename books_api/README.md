@@ -31,12 +31,12 @@ Falta de persistência (dados somem ao desligar/reiniciar), consumo limitado pel
 ## Modelagem da API
 
 ### 1. Recursos (Entidades)
-No código, o recurso é definido pelas estruturas em memória e variáveis que guardam e identificam os livros:
+O recurso é definido pelas estruturas em memória e variáveis que guardam e identificam os livros:
 *   **A Lista de Livros (books):** Representa a coleção de recursos.
 *   **A função `find_book(book_id)`:** Representa a busca por um recurso individual no sistema.
 
 ### 2. Representação dos Dados
-No código, isso aparece na validação dos campos do dicionário e na conversão em JSON:
+Isso aparece na validação dos campos do dicionário e na conversão em JSON:
 *   **Dicionários em Python:** A estrutura das chaves `id`, `title`, `author`, `year` e `available` reflete a representação JSON exigida pelo trabalho.
 *   **A função `validate_book_data(data)`:** Garante que o corpo enviado pelo cliente siga estritamente os tipos de dados e os campos obrigatórios da representação.
 *   **`json.dumps(data)` e `json.loads(raw_data)`:** Realizam a transformação entre a representação textual JSON (trafegada no HTTP) e o objeto em memória do Python.
@@ -50,7 +50,7 @@ O mapeamento de rotas está organizado nas funções da classe `BooksHandler` qu
 *   **Roteamento:** A verificação `if self.path == "/api/books"` ou `if self.path.startswith("/api/books/")` faz o papel do roteamento da aplicação.
 
 ### 4. Tratamento de Erros
-No seu código, o tratamento de erros é feito através dos blocos condicionais de validação e dos métodos auxiliares de resposta HTTP:
+O tratamento de erros é feito através dos blocos condicionais de validação e dos métodos auxiliares de resposta HTTP:
 *   **Método `send_error_json(status_code, message)`:** Centraliza o envio dos códigos de erro com uma mensagem descritiva.
 *   **Captura de Exceções (`try...except json.JSONDecodeError`):** Trata requisições com corpo malformado enviando o status `400 Bad Request`.
 *   **Validação de ID (`if not id_text.isdigit()`):** Trata IDs inválidos retornando `400 Bad Request`.
