@@ -1,6 +1,7 @@
 # Desafio Prático — Construindo uma API REST para um Catálogo de Livros
 
 **Alunos:** Ana Carla Del Puppo, Danielle, Gabriel Terres, Hikaro, Lara, Pedro Henrique Daniel e Vinícius
+
 **Turma:** CC5N
 
 ## Pensando como um Projetista de APIs
