@@ -1,0 +1,40 @@
+---Operações Obrigatórias (Casos de Sucesso)---
+1. Listar todos os livros
+curl.exe -i -X GET http://localhost:8000/api/livros
+
+2. Consultar livro existente
+curl.exe -i -X GET http://localhost:8000/api/livros/1
+
+3. Criar novo livro
+curl.exe -i -X POST http://localhost:8000/api/livros -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"Grande Sertao: Veredas\", \"autor\": \"Guimaraes Rosa\", \"ano\": 1956, \"disponivel\": true}'
+
+4. Atualizar livro existente
+curl.exe -i -X PUT http://localhost:8000/api/livros/1 -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"Dom Casmurro\", \"autor\": \"Machado de Assis\", \"ano\": 1899, \"disponivel\": false}'
+
+5. Remover livro existente
+curl.exe -i -X DELETE http://localhost:8000/api/livros/2
+
+---Casos de Erro---
+6. Consultar livro inexistente (404)
+curl.exe -i -X GET http://localhost:8000/api/livros/999
+
+7. Consultar livro com identificador inválido (400)
+curl.exe -i -X GET http://localhost:8000/api/livros/abc
+
+8. Criar livro com JSON malformado (400)
+curl.exe -i -X POST http://localhost:8000/api/livros -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"Livro quebrado\",'
+
+9. Criar livro com campo obrigatório ausente (400)
+curl.exe -i -X POST http://localhost:8000/api/livros -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"Sem autor\", \"ano\": 2020, \"disponivel\": true}'
+
+10. Criar livro com tipo de dado incompatível (400)
+curl.exe -i -X POST http://localhost:8000/api/livros -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"Ano errado\", \"autor\": \"Autor X\", \"ano\": \"mil novecentos\", \"disponivel\": true}'
+
+11. Atualizar livro inexistente (404)
+curl.exe -i -X PUT http://localhost:8000/api/livros/999 -H "Content-Type: application/json; charset=utf-8" -d '{\"titulo\": \"X\", \"autor\": \"Y\", \"ano\": 2000, \"disponivel\": true}'
+
+12. Remover livro inexistente (404)
+curl.exe -i -X DELETE http://localhost:8000/api/livros/999
+
+13. Acessar rota inexistente (404)
+curl.exe -i -X DELETE http://localhost:8000/api/rota/inexistente
